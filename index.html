@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Community Notice Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>Community Notice Board</h1>
+      <p class="subtitle">Apne residential society ke liye digital notice board</p>
+    </div>
+    <div class="actions">
+      <button id="adminBtn" class="btn">Admin Login</button>
+      <a href="#" id="downloadBtn" class="btn outline">Export</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="tabs">
+      <button class="tab active" data-filter="all">All</button>
+      <button class="tab" data-filter="announcement">Announcements</button>
+      <button class="tab" data-filter="event">Events</button>
+      <button class="tab" data-filter="market">Buy/Sell/Rent</button>
+    </nav>
+
+    <section class="board">
+      <div id="notices" class="cards-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© Community Notice Board • Share responsibly • Contact: society@example.com</small>
+  </footer>
+
+  <!-- Admin Modal -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <button class="close" id="closeModal">&times;</button>
+      <h2>Admin Panel</h2>
+
+      <form id="noticeForm">
+        <label>Category
+          <select id="category" required>
+            <option value="announcement">Announcement</option>
+            <option value="event">Event</option>
+            <option value="market">Buy/Sell/Rent</option>
+          </select>
+        </label>
+
+        <label>Title
+          <input id="title" type="text" placeholder="Title" required>
+        </label>
+
+        <label>Message
+          <textarea id="message" rows="4" placeholder="Write message..." required></textarea>
+        </label>
+
+        <div class="form-row">
+          <label>Expiry (optional)
+            <input id="expiry" type="date">
+          </label>
+
+          <label>Author
+            <input id="author" type="text" placeholder="Admin name (optional)">
+          </label>
+        </div>
+
+        <input id="hiddenId" type="hidden">
+        <div class="form-actions">
+          <button type="submit" class="btn">Post Notice</button>
+          <button type="button" id="clearBtn" class="btn outline">Clear</button>
+        </div>
+      </form>
+
+      <hr>
+      <button id="logoutBtn" class="btn danger">Logout</button>
+    </div>
+  </div>
+
+  <!-- Simple password prompt (first login) -->
+  <script src="script.js"></script>
+</body>
+</html>
